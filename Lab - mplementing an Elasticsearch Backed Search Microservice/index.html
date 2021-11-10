@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>FrankenWords</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="frankenwords.css">
+    <link rel="icon" type="image/png" href="frankenstein.png">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+        <span><img class = "pr-3" src="frankenstein.png" height = "35x"/></span><span class="navbar-brand text-center">FrankenWords</span><span><img src="frankenstein.png" height = "35x"/></span>
+    </nav>
+    <div class = "infobox">
+        <h3>Search Operators</h3>
+        <ul class = "list-group text-center">
+            <li class = "list-group-item">+ And</li>
+            <li class = "list-group-item">- Negate</li>
+            <li class = "list-group-item">"" Phrase Match</li>
+            <li class = "list-group-item">* Wildcard</li>
+            <li class = "list-group-item">() Precidence</li>
+            <li class = "list-group-item">~N fuzzyness/slop</li>
+        </ul>
+    </div>
+    <div class = "container-fluid">
+        <div class = "row pt-3">
+            <div class = "col-sm-2"></div>
+            <div class = "col-sm-8">
+                <div class = "container">
+                    <form data-bind = "submit: frankenSearch">
+                        <div class="form-group">
+                            <input type="searchTerm" class="form-control" id="searchterm" data-bind = "value: searchTerm">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+            </div>
+            <div class = "col-sm-2"></div>
+            </div>
+        </div>
+        <div class = "row pt-3">
+            <div class = "col-sm-3"></div>
+            <div class = "col-sm-6">
+                <div class = "container">
+                    <span class = "h3">Search: <span data-bind = "text: searchTerm"></span></span>
+                </div>
+            </div>
+        </div>
+        <div class = "row pt-3">
+            <div class = "col-sm-3"></div>
+            <div class = "col-sm-2">
+                <div class = "databox p-2 text-center">
+                    <span class = "h1">Total Hits</span>
+                    <div class = "h2" data-bind = "text: totalHits"></div>
+                </div>
+            </div>
+            <div class = "col-sm-2">
+                <div class = "databox p-2 text-center">
+                    <span class = "h1">Chapter Count</span>
+                    <div class = "h2" data-bind = "text: chapterCount"></div>
+                </div>
+            </div>
+            <div class = "col-sm-2">
+                <div class = "databox p-2 text-center">
+                    <span class = "h1">Total Score</span>
+                    <div class = "h2" data-bind = "text: totalScore"></div>
+                </div>
+            </div>
+            <div class = "col-sm-3"></div>
+        </div>
+        <div class = "row pt-3">
+            <div class = "col-sm-3"></div>
+            <div class = "col-sm-6">
+                <div class = "tablebox p-2 text-left">
+                    <div class = "table"> 
+                        <table>
+                            <tr class = "thead-dark text-center">
+                                <th>Location</th>
+                                <th>Score</th>
+                            </tr>
+                        <!-- ko foreach: searchHits -->
+                            <tr>
+                                <td class = "text-center"><span data-bind = "text: $data.location"></span></td>
+                                <td class = "text-center"><span data-bind = "text: $data.score"></span></td>
+                            </tr>
+                        <!-- /ko -->
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class = "col-sm-3"></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="frankenwords.js"></script>
+</body>
+
+</html>

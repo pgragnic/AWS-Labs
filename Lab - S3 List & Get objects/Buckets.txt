@@ -1,0 +1,5 @@
+pg-random-users-368876496831 => Static website
+website endpoint: http://pg-random-users-368876496831.s3-website.eu-west-3.amazonaws.com/
+api endpoint: https://96pks0hfd3.execute-api.eu-west-2.amazonaws.com
+
+pg-random-users-data-368876496831 => user data

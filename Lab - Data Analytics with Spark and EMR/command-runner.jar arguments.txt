@@ -1,0 +1,3 @@
+s3-dist-cp --src=s3://user-data-pg1234567890/ --dest=hdfs:///user/hadoop/files
+
+s3-dist-cp --src=hdfs:///user/hadoop/results --dest=s3://user-data-results-pg1234567890/
